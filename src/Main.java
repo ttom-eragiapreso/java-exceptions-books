@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -29,9 +31,19 @@ public class Main {
                 }
             }
         }
-        for (Libro libro :
-                libreria) {
-            System.out.println(libro);
+        FileWriter fw;
+        try {
+            fw = new FileWriter("./lista-libri.txt", true);
+            for (int i = 0; i < libreria.length; i++) {
+                fw.write("Libro n." + ++i + " " + libreria[i].toString() + "\n");
+                System.out.println(libreria[i]);
+            }
+            fw.close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());;
         }
+
+
+
     }
 }

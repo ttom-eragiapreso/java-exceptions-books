@@ -82,11 +82,11 @@ public class Libro {
 
     @Override
     public String toString() {
-        return "Libro{" +
-                "titolo='" + titolo + '\'' +
-                ", pagine=" + pagine +
-                ", autore='" + autore + '\'' +
-                ", editore='" + editore + '\'' +
-                '}';
+        return
+                "titolo = '" + titolo + '\'' +
+                ", pagine = " + pagine +
+                ", autore = '" + autore + '\'' +
+                ", editore = '" + editore + '\''
+;
     }
 }
