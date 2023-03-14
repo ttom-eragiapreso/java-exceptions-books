@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -31,18 +33,31 @@ public class Main {
                 }
             }
         }
+        //Scrivo sul file
         FileWriter fw;
         try {
             fw = new FileWriter("./lista-libri.txt", true);
             for (int i = 0; i < libreria.length; i++) {
-                fw.write("Libro n." + ++i + " " + libreria[i].toString() + "\n");
+                fw.write("Libro n." + (i+1) + " " + libreria[i].toString() + "\n");
                 System.out.println(libreria[i]);
             }
             fw.close();
         } catch (IOException e) {
-            System.out.println(e.getMessage());;
+            System.out.println(e.getMessage());
         }
 
+        //Leggo il file
+        File miaLibreria = new File("./lista-libri.txt");
+        try {
+            Scanner bookReader = new Scanner(miaLibreria);
+            while(bookReader.hasNextLine()){
+                String line = bookReader.nextLine();
+                System.out.println(line);
+            }
+            bookReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found at specified location.");
+        }
 
 
     }
